@@ -160,24 +160,19 @@
         const dateStr = sources[rand].date_of_publication;
         const date = new Date(dateStr);
         let today = new Date();
-        switch (7) {
-          case 5: 
+        switch (Math.floor(Math.random() * 4)+1) {
           case 1:
             videoLabel.innerText = String(sources[rand].label) +"\n"+ "Only "+ (today.getTime()-date.getTime())+ " milliseconds since this came out on " + date.toLocaleDateString();
             break;
           case 2:
-          case 6:
-          case 0:
             videoLabel.innerText = String(sources[rand].label) +"\n"+"Enjoy this hit from "+date.toLocaleDateString();
             break;
-          case 7:
           case 3:
             const diffTime = Math.abs(today.getTime() - date.getTime());
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
             videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffDays + " days since this came out on " + date.toLocaleDateString();
             break;
           case 4:
-          case 8:
             const diffMonths = (new Date().getFullYear() - date.getFullYear()) * 12 + (new Date().getMonth() - date.getMonth());
             videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffMonths + " months since this came out on " + date.toLocaleDateString();
             break;
