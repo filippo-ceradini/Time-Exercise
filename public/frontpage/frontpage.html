@@ -98,7 +98,7 @@
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
       
       <div style="margin-bottom: 1rem;">
-        <button id="startButton" class="button-53" onclick="changeVideo()">Press for Time</button>
+        <button id="startButton" class="button-53" onclick="changeVideo()">Press for Music Time</button>
       </div>
       
       <div id="videoDiv" class="hide">
@@ -109,7 +109,7 @@
       </div>
       
       <div id="backButton" class="hide" >
-        <button class="button-53" style="background-color: #e7d93d;" onclick="back()">Back</button>
+        <button class="button-53" style="background-color: #e7d93d;" onclick="back()">Go Back and try again!</button>
       </div>
     </div>
   
@@ -125,11 +125,11 @@
       const src1 = {song: "Back in Time",                      date_of_publication: '1985-05-06T00:00:00.000Z', label:"Who doesn't love Back to the Future anyway?", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/bttf.mp4#t=65"}
       const src2 = {song: "If I Could Turn Back Time",         date_of_publication: '1989-06-01T00:00:00.000Z', label:"Random song about time", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/cher.webm#t=8,40"}
       const src3 = {song: "Time after time",                   date_of_publication: '1984-01-27T00:00:00.000Z', label:"Cindy 4 president", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/cindy.mp4#t=114"}
-      const src4 = {song: "I've Had The Time of my Life",      date_of_publication: "1987-08-04T00:00:00.000Z", label:"As seen in some movie..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/dirtydancing.webm#t=20"}
+      const src4 = {song: "I've Had The Time of my Life",      date_of_publication: "1987-08-04T00:00:00.000Z", label:"I had a good time, maybe not the time of my life..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/dirtydancing.webm#t=20"}
       const src5 = {song: "Time of your life",                 date_of_publication: '1997-10-17T00:00:00.000Z', label:"For a lovely Green Day.. (I had a good time coding this)", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/greenDay.webm#t=36"}
-      const src6 = {song: "Hammer Time",                       date_of_publication: "1990-03-12T00:00:00.000Z", label:"You can't touch this code..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/hammer.webm#t=130"}
+      const src6 = {song: "Hammer Time",                       date_of_publication: "1990-03-12T00:00:00.000Z", label:"You can't touch this code..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/hammer.webm#t=129"}
       const src7 = {song: "...Baby One More Time",             date_of_publication: "1998-01-12T00:00:00.000Z", label:"One more debug..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/oneMoreTime.webm#t=77"}
-      const src8 = {song: "Old Time Rock n Roll by Bob Seger", date_of_publication: "1978-01-01T00:00:00.000Z", label:"My reaction when I managed to load external assets..", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/risky.webm#t=38"}
+      const src8 = {song: "Old Time Rock n Roll by Bob Seger", date_of_publication: "1978-01-01T00:00:00.000Z", label:"I also like Old time rock'n'roll", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/risky.webm#t=38"}
       const src9 = {song: "Careless whisper",                  date_of_publication: "1984-07-24T00:00:00.000Z", label:"The inspiration for this website was Goeorge Harrison yelling \"Time could never mend..\" \n straight into the browser", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/whisper.webm#t=89"}
       const src10 = {                                          date_of_publication: "0000-12-25T00:00:00.000Z", label:"Bonus round! hope you had fun catching the egg!", link:"https://raw.githubusercontent.com/filippo-ceradini/Time-Exercise/main/public/ASSets/jesus.mp4#t=114"}
       const sources =[src1,src2,src3,src4,src5,src6,src7,src8,src9,src10]
@@ -149,7 +149,7 @@
         switch (7) {
           case 5: 
           case 1:
-            videoLabel.innerText = String(sources[rand].label) +"\n"+ "Only "+ (today.getTime()-date.getTime())+ " milliseconds since this came out in " + date.toLocaleDateString();
+            videoLabel.innerText = String(sources[rand].label) +"\n"+ "Only "+ (today.getTime()-date.getTime())+ " milliseconds since this came out on " + date.toLocaleDateString();
             break;
           case 2:
           case 6:
@@ -161,12 +161,12 @@
             const diffTime = Math.abs(today.getTime() - date.getTime());
             console.log(diffTime)
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-            videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffDays + " days since this came out in " + date.toLocaleDateString();
+            videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffDays + " days since this came out on " + date.toLocaleDateString();
             break;
           case 4:
           case 8:
             const diffMonths = (new Date().getFullYear() - date.getFullYear()) * 12 + (new Date().getMonth() - date.getMonth());
-            videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffMonths + " months since this came out in " + date.toLocaleDateString();
+            videoLabel.innerText = String(sources[rand].label) + "\n" +"Only "+ diffMonths + " months since this came out on " + date.toLocaleDateString();
             break;
         }
         vid1.appendChild(source);
@@ -180,7 +180,7 @@
         startButton.classList.toggle("hide")
         backButton.classList.toggle("hide");
         vid1.pause()
-        location.reload(); 
+        location.reload();
       }
       
     </script>
